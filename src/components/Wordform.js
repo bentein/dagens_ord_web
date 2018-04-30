@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './Wordform.css';
-import apiKey from '../global/variables';
+import apiKey from '../global/Variables.js';
 
 class Wordform extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {status: ""};
-		axios.defaults.crossDomain = true;		
+		axios.defaults.crossDomain = true;
 	}
 
 	getWordObject() {
@@ -34,7 +34,10 @@ class Wordform extends Component {
 
 		axios.put('https://a71n4w0dwf.execute-api.eu-west-1.amazonaws.com/testing',item, {headers:{'x-api-key':apiKey}})
 			.then((resp) => {
-				if (resp.status === 200) {
+				console.log(resp);
+				if (resp.data.errorMessage) {
+					this.setState({status: "failure"});
+				} else if (resp.status === 200) {
 					this.setState({status: "success"});
 				}
 			})
