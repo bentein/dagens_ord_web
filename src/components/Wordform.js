@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './Wordform.css';
+import apiKey from '../global/variables';
 
 class Wordform extends Component {
 	constructor(props) {
@@ -31,7 +32,7 @@ class Wordform extends Component {
 
 		var item = this.getWordObject();
 
-		axios.put('https://a71n4w0dwf.execute-api.eu-west-1.amazonaws.com/testing',item)
+		axios.put('https://a71n4w0dwf.execute-api.eu-west-1.amazonaws.com/testing',item, {headers:{'x-api-key':apiKey}})
 			.then((resp) => {
 				if (resp.status === 200) {
 					this.setState({status: "success"});

@@ -22,7 +22,7 @@
 
 .status {
   cursor: pointer;
-  
+
   box-sizing: border-box;
   height: 38px;
   width: 90%;
@@ -74,7 +74,7 @@ textarea {
   width: 173px;
   min-width: 173px;
   max-width: 173px;
-  height: 21px;
+  height: 84px;
   min-height: 21px;
 }
 
